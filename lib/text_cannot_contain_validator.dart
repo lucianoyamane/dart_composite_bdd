@@ -15,8 +15,6 @@ class TextCannotContainValidator extends Validator {
   }
 
   @override
-  String error() {
-    return 'Cannot contain 123';
-  }
+  String error() => 'Cannot contain 123';
 
 }

@@ -14,7 +14,6 @@ class MinTextValidator extends Validator {
   }
 
   @override
-  String error() {
-    return 'Minimum text length 6';
-  }
+  String error() => 'Minimum text length 6';
+
 }

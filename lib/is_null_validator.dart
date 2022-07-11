@@ -7,13 +7,9 @@ class IsNullValidator extends Validator {
   IsNullValidator(this.value);
 
   @override
-  bool isValid() {
-    return value != null;
-  }
+  bool isValid() => value != null;
 
   @override
-  String error() {
-    return 'Please enter some text';
-  }
+  String error() => 'Please enter some text';
 
 }
