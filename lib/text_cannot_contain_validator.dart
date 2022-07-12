@@ -1,10 +1,8 @@
-import 'api/validator.dart';
+import 'api/leaf_validator.dart';
 
-class TextCannotContainValidator extends Validator {
+class TextCannotContainValidator extends LeafValidator {
 
-  String? value;
-
-  TextCannotContainValidator(this.value);
+  TextCannotContainValidator(value): super('Cannot contain 123', value);
 
   @override
   bool isValid() {
@@ -13,8 +11,5 @@ class TextCannotContainValidator extends Validator {
     }
     return true;
   }
-
-  @override
-  String error() => 'Cannot contain 123';
 
 }

@@ -1,15 +1,11 @@
-import 'api/validator.dart';
+import 'api/leaf_validator.dart';
 
-class IsNullValidator extends Validator {
+class IsNullValidator extends LeafValidator {
 
-  String? value;
 
-  IsNullValidator(this.value);
+  IsNullValidator(value): super('Cannot be null', value);
 
   @override
   bool isValid() => value != null;
-
-  @override
-  String error() => 'Please enter some text';
 
 }
