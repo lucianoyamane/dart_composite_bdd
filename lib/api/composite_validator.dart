@@ -10,21 +10,21 @@ class CompositeValidator extends Validator {
   }
 
   @override
-  String error() {
-    Set<String> erros = {};
+  String getMessage(String? value) {
+    Set<String?> erros = {};
     for (var validator in _validators) {
-      if (validator.isInvalid()) {
-        erros.add(validator.error());
+      if (validator.isInvalid(value)) {
+        erros.add(validator.getMessage(value));
       }
     }
     return erros.join(" | ");
   }
 
   @override
-  bool isValid() {
+  bool isValid(String? value) {
     var valid = true;
     for (var validator in _validators) {
-      if (validator.isInvalid()) {
+      if (validator.isInvalid(value)) {
         valid = false;
       }
     }

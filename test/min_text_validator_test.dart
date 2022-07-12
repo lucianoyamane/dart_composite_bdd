@@ -4,38 +4,38 @@ import 'package:test/test.dart';
 void main() {
   group("IsNull", () {
     test('valid', () {
-      MinTextValidator validator = MinTextValidator(value: 'some_value');
-      expect(validator.isValid(), true);
+      MinTextValidator validator = MinTextValidator();
+      expect(validator.isValid('some_value'), true);
     });
 
     test('invalid', () {
-      MinTextValidator validator = MinTextValidator(value: 'some_value');
-      expect(validator.isInvalid(), false);
+      MinTextValidator validator = MinTextValidator();
+      expect(validator.isInvalid('some_value'), false);
     });
 
     test('value invalid', () {
-      MinTextValidator validator = MinTextValidator(value: 'some');
-      expect(validator.isInvalid(), true);
+      MinTextValidator validator = MinTextValidator();
+      expect(validator.isInvalid('some'), true);
     });
 
     test('valid null', () {
       MinTextValidator validator = MinTextValidator();
-      expect(validator.isValid(), true);
+      expect(validator.isValid(null), true);
     });
 
     test('invalid null', () {
       MinTextValidator validator = MinTextValidator();
-      expect(validator.isInvalid(), false);
+      expect(validator.isInvalid(null), false);
     });
 
     test('message', () {
       MinTextValidator validator = MinTextValidator();
-      expect(validator.error(), 'Minimum text length 6');
+      expect(validator.getMessage('abc'), 'Minimum text length 6');
     });
 
     test('custom message', () {
       MinTextValidator validator = MinTextValidator(message: 'custom_message');
-      expect(validator.error(), 'custom_message');
+      expect(validator.getMessage('abc'), 'custom_message');
     });
   });
 }

@@ -1,7 +1,7 @@
 abstract class Validator {
-  bool isValid();
+  bool isValid(String? value);
 
-  String error();
+  String? getMessage(String? value);
 
-  bool isInvalid() => !isValid();
+  bool isInvalid(String? value) => !isValid(value);
 }

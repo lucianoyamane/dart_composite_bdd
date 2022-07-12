@@ -1,12 +1,15 @@
 import 'validator.dart';
 
 abstract class LeafValidator extends Validator {
-
-  String? value;
   String message;
 
-  LeafValidator(this.message, this.value);
+  LeafValidator(this.message);
 
   @override
-  String error() => message;
+  String? getMessage(String? value){
+    if (isValid(value)) {
+      return null;
+    }
+    return message;
+  }
 }

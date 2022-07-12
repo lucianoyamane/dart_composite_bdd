@@ -2,12 +2,12 @@ import 'api/leaf_validator.dart';
 
 class MinTextValidator extends LeafValidator {
 
-  MinTextValidator({ message = 'Minimum text length 6',  value }): super(message, value);
+  MinTextValidator({ message = 'Minimum text length 6' }): super(message);
 
   @override
-  bool isValid() {
+  bool isValid(String? value) {
     if (value != null) {
-      return value!.length > 5;
+      return value.length > 5;
     }
     return true;
   }

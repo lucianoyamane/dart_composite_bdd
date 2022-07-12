@@ -1,9 +1,9 @@
 import 'package:dart_composite_bdd/text_validator.dart';
 
 void main(List<String> arguments) {
-  var value = null;
+  var value = '123';
 
-  var composite = TextValidator.config()..minText(value)..cannotContain123(value)..isNull(value);
+  var composite = TextValidator.config()..minText()..cannotContain123()..isNull();
 
-  print(composite.error());
+  print(composite.getMessage(value));
 }

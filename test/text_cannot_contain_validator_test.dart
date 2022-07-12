@@ -4,38 +4,38 @@ import 'package:test/test.dart';
 void main() {
   group("IsNull", () {
     test('valid', () {
-      TextCannotContainValidator validator = TextCannotContainValidator(value: 'some_value');
-      expect(validator.isValid(), true);
+      TextCannotContainValidator validator = TextCannotContainValidator();
+      expect(validator.isValid('some_value'), true);
     });
 
     test('invalid', () {
-      TextCannotContainValidator validator = TextCannotContainValidator(value: 'some_value');
-      expect(validator.isInvalid(), false);
+      TextCannotContainValidator validator = TextCannotContainValidator();
+      expect(validator.isInvalid('some_value'), false);
     });
 
     test('value invalid', () {
-      TextCannotContainValidator validator = TextCannotContainValidator(value: '123');
-      expect(validator.isValid(), false);
+      TextCannotContainValidator validator = TextCannotContainValidator();
+      expect(validator.isValid('123'), false);
     });
 
     test('valid null', () {
       TextCannotContainValidator validator = TextCannotContainValidator();
-      expect(validator.isValid(), true);
+      expect(validator.isValid(null), true);
     });
 
     test('invalid null', () {
       TextCannotContainValidator validator = TextCannotContainValidator();
-      expect(validator.isInvalid(), false);
+      expect(validator.isInvalid(null), false);
     });
 
     test('message', () {
-      TextCannotContainValidator validator = TextCannotContainValidator(value: 'some_value');
-      expect(validator.error(), 'Cannot be null');
+      TextCannotContainValidator validator = TextCannotContainValidator();
+      expect(validator.getMessage('123'), 'Cannot be null');
     });
 
     test('custom message', () {
       TextCannotContainValidator validator = TextCannotContainValidator(message: 'custom_message');
-      expect(validator.error(), 'custom_message');
+      expect(validator.getMessage('123'), 'custom_message');
     });
   });
 }
