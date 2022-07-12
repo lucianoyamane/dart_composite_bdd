@@ -2,7 +2,7 @@ import 'api/leaf_validator.dart';
 
 class TextCannotContainValidator extends LeafValidator {
 
-  TextCannotContainValidator(value): super('Cannot contain 123', value);
+  TextCannotContainValidator({ message = 'Cannot be null',  value }): super(message, value);
 
   @override
   bool isValid() {
