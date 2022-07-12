@@ -16,7 +16,7 @@ class TextValidator extends CompositeValidator {
   }
 
   void cannotContain123() {
-    add(TextCannotContainValidator());
+    add(TextCannotContainValidator(validationText: '123'));
   }
 
 }

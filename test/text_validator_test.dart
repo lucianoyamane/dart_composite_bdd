@@ -15,7 +15,7 @@ void main() {
       var value = '123';
       TextValidator validator = TextValidator.config()..minText()..cannotContain123()..isNull();;
       expect(validator.isValid(value), false);
-      expect(validator.getMessage(value), 'Minimum text length 6 | Cannot be null');
+      expect(validator.getMessage(value), 'Minimum text length 6 | Invalid text');
     });
 
     test('null test', () {
