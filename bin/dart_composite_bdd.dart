@@ -5,5 +5,5 @@ void main(List<String> arguments) {
 
   var composite = TextValidator.config()..minText()..cannotContain123()..isNull();
 
-  print(composite.getMessage(value));
+  print(composite.errorMessage(value));
 }

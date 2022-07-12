@@ -30,12 +30,12 @@ void main() {
 
     test('message', () {
       MinTextValidator validator = MinTextValidator();
-      expect(validator.getMessage('abc'), 'Minimum text length 6');
+      expect(validator.errorMessage('abc'), 'Minimum text length 6');
     });
 
     test('custom message', () {
       MinTextValidator validator = MinTextValidator(message: 'custom_message');
-      expect(validator.getMessage('abc'), 'custom_message');
+      expect(validator.errorMessage('abc'), 'custom_message');
     });
   });
 }

@@ -14,9 +14,9 @@ class CompositeValidator extends Validator {
   }
 
   @override
-  String? getMessage(String? value) {
+  String? errorMessage(String? value) {
     var isInvalid = _validatorsIsInvalid(value);
-    Iterable<String?> errors = isInvalid.map((validator) => validator.getMessage(value));
+    Iterable<String?> errors = isInvalid.map((validator) => validator.errorMessage(value));
     if (errors.isNotEmpty) {
       return errors.join(" | ");
     }

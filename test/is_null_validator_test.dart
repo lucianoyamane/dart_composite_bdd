@@ -25,12 +25,12 @@ void main() {
 
     test('message', () {
       IsNullValidator validator = IsNullValidator();
-      expect(validator.getMessage(null), 'Cannot be null');
+      expect(validator.errorMessage(null), 'Cannot be null');
     });
 
     test('custom message', () {
       IsNullValidator validator = IsNullValidator(message: 'custom_message');
-      expect(validator.getMessage(null), 'custom_message');
+      expect(validator.errorMessage(null), 'custom_message');
     });
   });
 }

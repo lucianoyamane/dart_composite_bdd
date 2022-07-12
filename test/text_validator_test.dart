@@ -8,21 +8,21 @@ void main() {
       var value = 'some_text';
       TextValidator validator = TextValidator.config()..minText()..cannotContain123()..isNull();;
       expect(validator.isValid(value), true);
-      expect(validator.getMessage(value), null);
+      expect(validator.errorMessage(value), null);
     });
 
     test('123 test', () {
       var value = '123';
       TextValidator validator = TextValidator.config()..minText()..cannotContain123()..isNull();;
       expect(validator.isValid(value), false);
-      expect(validator.getMessage(value), 'Minimum text length 6 | Invalid text');
+      expect(validator.errorMessage(value), 'Minimum text length 6 | Invalid text');
     });
 
     test('null test', () {
       String? value;
       TextValidator validator = TextValidator.config()..minText()..cannotContain123()..isNull();;
       expect(validator.isValid(value), false);
-      expect(validator.getMessage(value), 'Cannot be null');
+      expect(validator.errorMessage(value), 'Cannot be null');
     });
   });
 }

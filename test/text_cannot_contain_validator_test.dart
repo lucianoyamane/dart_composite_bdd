@@ -30,12 +30,12 @@ void main() {
 
     test('message', () {
       TextCannotContainValidator validator = TextCannotContainValidator(validationText: '123');
-      expect(validator.getMessage('123'), 'Invalid text');
+      expect(validator.errorMessage('123'), 'Invalid text');
     });
 
     test('custom message', () {
       TextCannotContainValidator validator = TextCannotContainValidator(validationText: '123', message: 'custom_message');
-      expect(validator.getMessage('123'), 'custom_message');
+      expect(validator.errorMessage('123'), 'custom_message');
     });
   });
 }

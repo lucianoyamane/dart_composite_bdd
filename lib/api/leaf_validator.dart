@@ -6,7 +6,7 @@ abstract class LeafValidator extends Validator {
   LeafValidator(this.message);
 
   @override
-  String? getMessage(String? value){
+  String? errorMessage(String? value){
     if (isValid(value)) {
       return null;
     }
