@@ -9,25 +9,23 @@ class CompositeValidator extends Validator {
     _validators.add(validator);
   }
 
+  Iterable<Validator> _validatorsIsInvalid(String? value) {
+    return _validators.where((validator) => validator.isInvalid(value));
+  }
+
   @override
-  String getMessage(String? value) {
-    Set<String?> erros = {};
-    for (var validator in _validators) {
-      if (validator.isInvalid(value)) {
-        erros.add(validator.getMessage(value));
-      }
+  String? getMessage(String? value) {
+    var isInvalid = _validatorsIsInvalid(value);
+    Iterable<String?> errors = isInvalid.map((validator) => validator.getMessage(value));
+    if (errors.isNotEmpty) {
+      return errors.join(" | ");
     }
-    return erros.join(" | ");
+    return null;
   }
 
   @override
   bool isValid(String? value) {
-    var valid = true;
-    for (var validator in _validators) {
-      if (validator.isInvalid(value)) {
-        valid = false;
-      }
-    }
-    return valid;
+    var isInvalid = _validatorsIsInvalid(value);
+    return isInvalid.isEmpty;
   }
 }
