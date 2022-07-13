@@ -12,7 +12,7 @@ class TextValidator extends CompositeValidator {
   }
 
   void minText() {
-    add(MinTextValidator());
+    add(MinTextValidator(minimum: 5));
   }
 
   void cannotContain123() {
